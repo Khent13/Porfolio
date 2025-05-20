@@ -104,3 +104,7 @@ if (contactForm) {
     }
   });
 }
+
+Purpose: Validates the contact form fields before submission.
+
+How: Checks if name, email (must include '@'), and message are filled. Shows alerts if missing. On success, displays confirmation, resets form, and closes modal.
