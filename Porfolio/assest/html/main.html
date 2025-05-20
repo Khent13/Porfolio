@@ -10,20 +10,17 @@
   <header>
     <nav class="navbar">
       <div class="nav-content">
-        <img
-          class="logo-img"
-          src="https://yt3.googleusercontent.com/Y8HcR2nIeoIkHQeS2C0t25nPKRThya15DRFyvRy-1pnJr6FW9xkqN4cVOKHPpeM8xPr5Yt1oVbo=s900-c-k-c0x00ffffff-no-rj"
-          alt="Logo"
-        />
+        <img class="logo-img" src="../img/Logo.png" alt="Logo" />
         <div class="title" tabindex="0">My Portfolio</div>
       </div>
-      <ul class="nav-links">
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#trainings">Trainings/Seminars</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
+  <ul class="nav-links">
+  <li><a href="#profile">Profile</a></li>
+  <li><a href="#education">Education</a></li>
+  <li><a href="#trainings">Trainings/Seminars</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#" id="contactBtn" class="nav-link">Contact Us</a></li>
+  </ul>
+
     </nav>
   </header>
 
@@ -42,25 +39,19 @@
     </section>
 
     <section id="education" class="education-section">
-      <img 
-        src="../img/Logo.png" 
-        alt="Education Logo"
-      />
+      <img src="../img/Logo.png" alt="Education Logo" />
       <h2>Education</h2>
       <p>
-        I'm currently studying in Center for Industrial Technology And Enterprise or CITE Technical Institute located at San Jose, Cebu City, Philippines. It is an industry-based and socially-oriented institution which plays a relevant role in the economic and social development of Cebu, the Central Visayas, and surrounding areas.
+        I'm currently studying in the Center for Industrial Technology And Enterprise (CITE) located at San Jose, Cebu City, Philippines. It is an industry-based and socially-oriented institution that plays a relevant role in the economic and social development of Cebu, the Central Visayas, and surrounding areas.
       </p>
     </section>
 
     <section id="trainings" class="training-section">
-      <img 
-        src="https://cdn-icons-png.flaticon.com/512/3176/3176290.png" 
-        alt="Training Icon"
-      />
+      <img src="https://cdn-icons-png.flaticon.com/512/3176/3176290.png" alt="Training Icon" />
       <div class="training-text">
         <h2>Trainings/Seminars</h2>
         <p>
-          In C.I.T.E Technical Institute they provide 4 diploma programs:
+          In CITE Technical Institute, they provide 4 diploma programs:
           <br>- Diploma in Mechanical Engineering Technology
           <br>- Diploma in Electronics Engineering Technology
           <br>- Diploma in Electrical Engineering Technology
@@ -80,16 +71,32 @@
     </section>
   </main>
 
-  <footer id="contact" class="footer">
-    <h2>Contact Us</h2>
+  <footer class="footer">
+    <h1>Contact Us</h1>
+    <p>Cell Number: 09664977509</p>
     <p>Gmail: khentfillone999@gmail.com</p>
-    <p>Phone Number: 09664977509</p>
-    <p>Facebook: Khent C. Fillone</p>
+    <p>© 2025 Khent C. Fillone</p>
   </footer>
 
   <div id="lightbox">
     <span id="closeBtn">&times;</span>
     <img id="lightbox-img" src="" alt="Expanded Image" />
+  </div>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <label for="message">Message:</label>
+        <textarea id="message" required></textarea>
+        <button type="submit" class="dynamic-button">Send</button>
+      </form>
+    </div>
   </div>
 
   <script src="../js/script.js"></script>

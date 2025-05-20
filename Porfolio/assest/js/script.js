@@ -1,27 +1,92 @@
-document.querySelectorAll('.nav-links a').forEach(link => {
+// Smooth Scroll Fix
+const scrollLinks = document.querySelectorAll('.nav-links a');
+
+scrollLinks.forEach(link => {
   link.addEventListener('click', function(e) {
+    const targetSelector = this.getAttribute('href');
+    
+    // Only smooth scroll if href points to a real section id
+    if (targetSelector.startsWith('#') && document.querySelector(targetSelector)) {
+      e.preventDefault();
+      const target = document.querySelector(targetSelector);
+      window.scrollTo({
+        top: target.offsetTop - 60,
+        behavior: 'smooth'
+      });
+    }
+    // else: do nothing, e.g. Contact Us button with href="#"
+  });
+});
+
+// Contact Modal Logic
+const contactBtn = document.getElementById('contactBtn');
+const contactModal = document.getElementById('contactModal');
+const closeModal = document.querySelector('.close-modal');
+
+contactBtn.addEventListener('click', () => {
+  contactModal.style.display = 'block';
+});
+
+closeModal.addEventListener('click', () => {
+  contactModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === contactModal) {
+    contactModal.style.display = 'none';
+  }
+});
+
+// Dynamic Button Actions
+const buttons = document.querySelectorAll(".dynamic-button");
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    alert(`You clicked on ${button.textContent}`);
+  });
+});
+
+// Enhanced Hover Effect for nav links
+const navLinks = document.querySelectorAll('.nav-links a');
+
+navLinks.forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    link.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+    link.style.transition = 'background-color 0.3s ease';
+  });
+
+  link.addEventListener('mouseleave', () => {
+    link.style.backgroundColor = 'transparent';
+  });
+});
+
+// Form Validation
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    const targetId = this.getAttribute("href").substring(1);
-    const target = document.getElementById(targetId);
-    if (target) {
-      const yOffset = -120;
-      const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+    let isValid = true;
+
+    if (name.value.trim() === '') {
+      alert('Please enter your name.');
+      isValid = false;
+    }
+    if (!email.value.includes('@') || email.value.trim() === '') {
+      alert('Please enter a valid email.');
+      isValid = false;
+    }
+    if (message.value.trim() === '') {
+      alert('Please enter your message.');
+      isValid = false;
+    }
+
+    if (isValid) {
+      alert('Form submitted successfully!');
+      contactForm.reset();
+      contactModal.style.display = 'none';
     }
   });
-});
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.getElementById("closeBtn");
-
-document.querySelectorAll(".project-gallery img").forEach(img => {
-  img.addEventListener("click", () => {
-    lightbox.style.display = "flex";
-    lightboxImg.src = img.src;
-  });
-});
-
-closeBtn.addEventListener("click", () => {
-  lightbox.style.display = "none";
-});
+}
