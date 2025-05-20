@@ -182,7 +182,6 @@ main {
   cursor: pointer;
 }
 
-/* Modal Styles */
 .modal {
   display: none;
   position: fixed;

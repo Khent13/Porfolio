@@ -1,11 +1,9 @@
-// Smooth Scroll Fix
 const scrollLinks = document.querySelectorAll('.nav-links a');
 
 scrollLinks.forEach(link => {
   link.addEventListener('click', function(e) {
     const targetSelector = this.getAttribute('href');
     
-    // Only smooth scroll if href points to a real section id
     if (targetSelector.startsWith('#') && document.querySelector(targetSelector)) {
       e.preventDefault();
       const target = document.querySelector(targetSelector);
@@ -14,11 +12,9 @@ scrollLinks.forEach(link => {
         behavior: 'smooth'
       });
     }
-    // else: do nothing, e.g. Contact Us button with href="#"
   });
 });
 
-// Contact Modal Logic
 const contactBtn = document.getElementById('contactBtn');
 const contactModal = document.getElementById('contactModal');
 const closeModal = document.querySelector('.close-modal');
@@ -37,7 +33,6 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// Dynamic Button Actions
 const buttons = document.querySelectorAll(".dynamic-button");
 buttons.forEach(button => {
   button.addEventListener("click", () => {
@@ -45,7 +40,6 @@ buttons.forEach(button => {
   });
 });
 
-// Enhanced Hover Effect for nav links
 const navLinks = document.querySelectorAll('.nav-links a');
 
 navLinks.forEach(link => {
@@ -59,7 +53,6 @@ navLinks.forEach(link => {
   });
 });
 
-// Form Validation
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
